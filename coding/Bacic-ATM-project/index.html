@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ATM Machine</title>
+    <style>
+        body {
+            font-family: Arial;
+            text-align: center;
+            margin-top: 50px;
+        }
+        input {
+            padding: 8px;
+            margin: 5px;
+        }
+        button {
+            padding: 8px 15px;
+            background-color: #002680;
+            color: hsl(0, 0%, 100%);
+            border: none;
+        }
+        #result {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>ATM Machine</h2>
+
+    <input type="number" id="balance" placeholder="Enter Balance"><br>
+    <input type="number" id="withdraw" placeholder="Enter Withdraw Amount"><br>
+    <input type="password" id="pin" placeholder="Enter PIN"><br>
+    <button onclick="withdrawMoney()">Withdraw</button>
+
+    <div id="result"></div>
+
+    <script>
+        function withdrawMoney() {
+
+            let Balance = parseInt(document.getElementById("balance").value);
+            let Withdraw_amount = parseInt(document.getElementById("withdraw").value);
+            let PIN = parseInt(document.getElementById("pin").value);
+            let result = document.getElementById("result");
+
+            if (PIN >= 1000 && PIN <= 9999) {
+                if (PIN === 1345) {
+                    if (Withdraw_amount % 500 === 0) {
+                        if (Withdraw_amount < Balance) {
+                            if (Balance - Withdraw_amount >= 1000) {
+                                let remainingBalance = Balance - Withdraw_amount;
+                                result.innerHTML = "✅ Successful Transaction<br>Remaining Balance: " + remainingBalance;
+                            } else {
+                                result.innerHTML = "❌ Minimum balance 1000 required";
+                            }
+                        } else {
+                            result.innerHTML = "❌ Insufficient Balance";
+                        }
+                    } else {
+                        result.innerHTML = "❌ Amount should be multiple of 500";
+                    }
+                } else {
+                    result.innerHTML = "❌ Invalid PIN";
+                }
+            } else {
+                result.innerHTML = "❌ Enter 4 digit PIN";
+            }
+        }
+    </script>
+
+</body>
+</html>
