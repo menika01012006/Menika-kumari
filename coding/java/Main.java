@@ -1,24 +1,33 @@
-/*
-1 
-1 2 
-1 2 3 
-1 2 3 4 */ 
+
+/* 1
+  232
+ 34543
+4567654
+*/
 public class Main {
-public static void noofcol(int col,int maxcol){
-    if(col>maxcol){
-        return;
-    }
-    System.out.print(col+" ");
-    noofcol(col+1, maxcol);
-}public static void noofrow(int row,int maxrow){
-    if(row>maxrow){
-        return;
-    }
-    noofcol(1, row);
-    System.out.println();
-    noofrow(row+1, maxrow);
-}
+
     public static void main(String[] args) {
-       noofrow(1, 4); 
+        int maxrow = 4;
+
+        for (int i = 1; i <= maxrow; i++) {
+            int n = i;
+            int n2 = 2 * i - 2;
+
+            for (int s = maxrow-1; s>=0 ; s--) {
+                System.out.print(" ");
+            }
+
+            for (int j =2*maxrow-i ; j >= 1; j--) {
+                System.out.print(n);
+
+                if (j <= i) {
+                    n++;
+                } else {
+
+                    n--;
+                }
+            }
+            System.out.println();
+        }
     }
 }

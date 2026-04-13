@@ -1,4 +1,92 @@
 /*
+* * * * 
+* * * * 
+* * * * 
+* * * *  */ 
+public class Main {
+public static void noofcol(int col,int maxcol){
+    if(col>maxcol){
+        return;
+    }
+    System.out.print("*"+" ");
+    noofcol(col+1,maxcol);
+}public static void noofrow(int row,int maxrow){
+    if(row>maxrow){
+        return;
+    }
+    noofcol(1,maxrow);
+    System.out.println();
+    noofrow(row+1, maxrow);
+}
+    public static void main(String[] args) {
+       noofrow(1, 4); 
+    }
+}
+
+/*
+1 2 3 4 
+1 2 3 4 
+1 2 3 4 
+1 2 3 4 */ 
+public class Main {
+public static void noofcol(int col,int maxcol){
+    if(col>maxcol){
+        return;
+    }
+    System.out.print(col+" ");
+    noofcol(col+1,maxcol);
+}public static void noofrow(int row,int maxrow){
+    if(row>maxrow){
+        return;
+    }
+    noofcol(1,maxrow);
+    System.out.println();
+    noofrow(row+1, maxrow);
+}
+    public static void main(String[] args) {
+       noofrow(1, 4); 
+    }
+}
+
+/*
+* * * * * 
+*       * 
+*       * 
+*       * 
+* * * * *
+*/ 
+
+public class Main {
+    
+    public static void printCol(int col, int maxcol, int row) {
+        if (col > maxcol) {
+            return;
+        }
+        if (col == 1 || col == maxcol || row == 1 || row == maxcol) {
+            System.out.print("*" + " ");
+        } else {
+            System.out.print(" " + " ");
+        }
+        printCol(col + 1, maxcol, row);
+        
+    }
+
+    public static void prinrRow(int row, int maxrow) {
+        if (row > maxrow) {
+            return;
+        }
+        printCol(1, maxrow, row);
+        System.out.println();
+        prinrRow(row + 1, maxrow);
+        ;
+    }
+
+    public static void main(String[] args) {
+prinrRow(1, 5);
+    }
+}
+
+/*
 * 
 * * 
 * * * 
@@ -143,36 +231,6 @@ public class Main {
         }
     }
 }
-// * 
-// * * 
-// * * * 
-// * * 
-// * 
-
-public class Main {
-    public static void noofcol(int col, int maxcol) {
-        if (col > maxcol) {
-            return;
-        }
-        System.out.println("*" + " ");
-        noofcol(1, maxcol);
-    }
-
-    public static void noofrow(int row, int maxrow, int totalnocol) {
-        if (row == 2 * maxrow) {
-            return;
-        }
-        totalnocol = row > maxrow ? 2 * maxrow - row : row;
-        noofcol(1, totalnocol);
-        System.out.println();
-        noofrow(row + 1, maxrow, totalnocol);
-    }
-
-    public static void main(String[] args) {
-        
-noofrow(1, 3, 0);
-        }
-    }
 
     //Play Button pattern Using Recursion: in increasing Order of Number
 
@@ -356,4 +414,246 @@ public class Main {
     //         System.out.println("");
     // }
 }
+}
+
+/*
+     *
+    * *
+   *   *
+  *     *
+ *********
+*/
+
+public class Main {
+    public static void prinrSpace(int space, int maxspace) {
+        if (space > maxspace) {
+            return;
+        }
+        System.out.print(" ");
+
+        prinrSpace(space + 1, maxspace);
+
+    }
+
+    public static void printCol(int col, int maxcol, int row,int maxrow) {
+        if (col > maxcol) {
+            return;
+        }
+        if (col == 1 || col == maxcol || row == 1 || row == maxrow) {
+            System.out.print("*" );
+        } else {
+            System.out.print(" " );
+        }
+        printCol(col + 1, maxcol, row,maxrow);
+
+    }
+
+    public static void prinrRow(int row, int maxrow) {
+        if (row > maxrow) {
+            return;
+        }
+        prinrSpace(1, maxrow - row + 1);
+        printCol(1, 2 * row - 1, row,maxrow);
+        System.out.println();
+        prinrRow(row + 1, maxrow);
+
+    }
+
+    public static void main(String[] args) {
+        prinrRow(1, 5);
+    }
+}
+
+/*
+ 123456789
+  1234567
+   12345
+    123
+     1
+*/
+
+public class Main {
+    public static void prinrSpace(int space) {
+        if (space ==0) {
+            return;
+        }
+        System.out.print(" ");
+
+        prinrSpace(space - 1);
+
+    }
+
+    public static void printCol(int col,int maxcol) {
+        if (col >maxcol) {
+            return;
+        }
+        // if (col == 1 || col == maxcol || row == 1 || row == maxrow) {
+        //     System.out.print("*" );
+        // } else {
+        //     System.out.print(" " );
+        // }
+        System.out.print(col);
+        printCol(col + 1,maxcol);
+
+    }
+
+    public static void prinrRow(int row, int maxrow) {
+        if (row >maxrow) {
+            return;
+        }
+        prinrSpace(row-1);
+        printCol(1,2 * (maxrow - row)+1);
+        System.out.println();
+        prinrRow(row +1, maxrow);
+
+    }
+
+    public static void main(String[] args) {
+        prinrRow(1, 5);
+    }
+}
+
+/*
+ 987654321
+ 7654321
+  54321
+   321
+    1
+*/
+
+public class Main {
+    public static void prinrSpace(int space) {
+        if (space ==0) {
+            return;
+        }
+        System.out.print(" ");
+
+        prinrSpace(space - 1);
+
+    }
+
+    public static void printCol(int col) {
+        if (col ==0) {
+            return;
+        }
+        // if (col == 1 || col == maxcol || row == 1 || row == maxrow) {
+        //     System.out.print("*" );
+        // } else {
+        //     System.out.print(" " );
+        // }
+        System.out.print(col);
+        printCol(col - 1);
+
+    }
+
+    public static void prinrRow(int row, int maxrow) {
+        if (row >maxrow) {
+            return;
+        }
+        prinrSpace(row-1);
+        printCol(2 * (maxrow - row)+1);
+        System.out.println();
+        prinrRow(row +1, maxrow);
+
+    }
+
+    public static void main(String[] args) {
+        prinrRow(1, 5);
+    }
+}
+
+/*
+ *********
+  *     *
+   *   *
+    * *
+     *
+*/
+
+public class Main {
+    public static void prinrSpace(int space, int maxspace) {
+        if (space > maxspace) {
+            return;
+        }
+        System.out.print(" ");
+
+        prinrSpace(space + 1, maxspace);
+
+    }
+
+    public static void printCol(int col, int maxcol, int row,int maxrow) {
+        if (col > maxcol) {
+            return;
+        }
+        if (col == 1 || col == maxcol || row == 1 || row == maxrow) {
+            System.out.print("*" );
+        } else {
+            System.out.print(" " );
+        }
+        printCol(col + 1, maxcol, row,maxrow);
+
+    }
+
+    public static void prinrRow(int row, int maxrow) {
+        if (row ==0) {
+            return;
+        }
+        prinrSpace(1, maxrow - row + 1);
+        printCol(1, 2 * row - 1, row,maxrow);
+        System.out.println();
+        prinrRow(row -1, maxrow);
+
+    }
+
+    public static void main(String[] args) {
+        prinrRow(5, 5);
+    }
+}
+
+/*
+123456789
+ 1     7
+  1   5
+   1 3
+    1
+*/
+
+public class Main {
+    public static void prinrSpace(int space) {
+        if (space ==0) {
+            return;
+        }
+        System.out.print(" ");
+
+        prinrSpace(space - 1);
+
+    }
+
+    public static void printCol(int col,int maxcol,int row,int maxrow) {
+        if (col >maxcol) {
+            return;
+        }
+        if (col == 1 || col == maxcol || row == 1 || row == maxrow) {
+            System.out.print(col );
+        } else {
+            System.out.print(" " );
+        }
+        printCol(col + 1,maxcol,row ,maxrow);
+
+    }
+
+    public static void prinrRow(int row, int maxrow) {
+        if (row >maxrow) {
+            return;
+        }
+        prinrSpace(row-1);
+        printCol(1,2 * (maxrow - row)+1,row,maxrow);
+        System.out.println();
+        prinrRow(row +1, maxrow);
+
+    }
+
+    public static void main(String[] args) {
+        prinrRow(1, 5);
+    }
 }
