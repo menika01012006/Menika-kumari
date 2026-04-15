@@ -1,26 +1,11 @@
-/*
-A
-B C
-D E F*/ 
 public class Mains {
-    public static char noofcol(int col,int maxcol,char ch){
-    if(col>maxcol){
-        return ch;
-    }
-    System.out.print(ch+" ");
-    ch++;
-   return noofcol(col+1, maxcol,ch);
+public static int factorial(int num ){
+    if(num<1){ 
+           return 1;
 }
-public static void noofrow(int row,int maxno,char ch){
-    if(row>maxno){
-        return;
-    }
-    ch=noofcol(1, row, ch);
-    
-    System.out.println();
-    noofrow(row+1, maxno,ch);
+return  num*factorial(num-1);
 }
     public static void main(String[] args) {
-        noofrow(1, 5,'A');
+      System.out.println(factorial(5));  
     }
 }

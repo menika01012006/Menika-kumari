@@ -373,6 +373,102 @@ public class Main {
     }
 }
 /*
+1 2 3 4 5 
+1 2 3 4 
+1 2 3 
+1 2 3 4 
+1 2 3 4 5
+*/ 
+public class Main {
+
+    public static void printCol(int col, int maxcol) {
+        if (col > maxcol) {
+            return;
+
+        }
+        System.out.print(col + " ");
+
+        printCol(col + 1, maxcol);
+
+    }
+
+    public static void printRow(int row, int maxRow) {
+        if (row == 2 * maxRow) {
+            return;
+
+        }
+        int totalNoCols = row > maxRow ? row : 2 * maxRow - row;
+        printCol(maxRow, totalNoCols);
+        System.out.println();
+        printRow(row + 1, maxRow);
+
+    }
+
+    public static void main(String[] args) {
+        int maxRow = 3;
+        printRow(1, maxRow);
+    }
+}
+
+/*
+5 4 3 2 1 
+4 3 2 1 
+3 2 1 
+4 3 2 1 
+5 4 3 2 1 
+*/ 
+public class Main {
+
+    public static void printCol(int col) {
+        if (col == 0) {
+            return;
+
+        }
+        System.out.print(col + " ");
+
+        printCol(col - 1);
+
+    }
+
+    public static void printRow(int row, int maxRow) {
+        if (row == 2 * maxRow) {
+            return;
+
+        }
+        int totalNoCols = row > maxRow ? row : 2 * maxRow - row;
+        printCol(totalNoCols);
+        System.out.println();
+        printRow(row + 1, maxRow);
+
+    }
+
+    public static void main(String[] args) {
+        int maxRow = 3;
+        printRow(1, maxRow);
+    }
+}
+
+/*
+      * 
+    * * 
+  * * * 
+* * * *
+     */ 
+public class Main {
+    public static void main(String[] args) {
+        int maxrow=4;
+        for (int i = 1; i <= maxrow; i++) {
+          for (int s = 1; s <=maxrow-i; s++) {
+            System.out.print(" "+" ");
+          }
+          for (int j = 1; j <=i; j++) {
+            System.out.print("*"+" ");
+          } 
+          System.out.println(); 
+        }
+    }
+}
+/*
 1 2 3 4                                                      
 1     4 
 1     4 
@@ -655,5 +751,103 @@ public class Main {
 
     public static void main(String[] args) {
         prinrRow(1, 5);
+    }
+}
+
+/*
+
+1  2  3  4  5  
+2  3  4  5  
+3  4  5  
+4  5  
+5  
+
+ */
+public class Main {
+
+    public static void printCol(int col, int maxCol) {
+        if (col > maxCol) {
+            return;
+
+        }
+        System.out.print(col+"  ");
+        printCol(col + 1, maxCol);
+
+    }
+
+    public static void printRow(int row, int maxRow) {
+        if (row > maxRow) {
+            return;
+
+        }
+        printCol(row,maxRow);
+        System.out.println();
+        printRow(row + 1, maxRow);
+
+    }
+
+    public static void main(String[] args) {
+        int maxRow = 5;
+         
+        printRow(1, maxRow);
+    }
+}
+
+/*
+
+ *  *  *  *  * 
+ *  *  *  * 
+ *  *  * 
+ *  *  *  * 
+ *  *  *  *  * 
+
+ */
+public class Main {
+
+    public static void pattern(int n) {
+        for (int row = 1; row < 2*n; row++) {// for row
+            int totalNoCols=row>n ? row : 2*n-row;
+            for (int col = 1; col <= totalNoCols; col++) {// for col
+                System.out.print(col);
+
+            }
+            System.out.println();
+
+        }
+
+    }
+
+    public static void main(String[] args) {
+        int n = 3;
+        pattern(n);
+
+
+    }
+}
+
+/*
+A
+B C
+D E F*/ 
+public class Mains {
+    public static char noofcol(int col,int maxcol,char ch){
+    if(col>maxcol){
+        return ch;
+    }
+    System.out.print(ch+" ");
+    ch++;
+   return noofcol(col+1, maxcol,ch);
+}
+public static void noofrow(int row,int maxno,char ch){
+    if(row>maxno){
+        return;
+    }
+    ch=noofcol(1, row, ch);
+    
+    System.out.println();
+    noofrow(row+1, maxno,ch);
+}
+    public static void main(String[] args) {
+        noofrow(1, 5,'A');
     }
 }
