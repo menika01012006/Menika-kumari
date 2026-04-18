@@ -1,4 +1,3 @@
-
 import javax.swing.*;
 
 public class app {
@@ -71,7 +70,7 @@ public class app {
         return (sumDigit(number) == multiplyDigit(number)) ? "Yes" : "No";
     }
 
-    // STRONG NUMBER
+    // ⭐ STRONG NUMBER
     public static int factorial(int n) {
         if (n == 0 || n == 1)
             return 1;
@@ -88,20 +87,15 @@ public class app {
         return (number == sumFactorialDigit(number)) ? "Yes" : "No";
     }
 
-    // ⭐PERFECT NUMBER
+    // ⭐ PERFECT NUMBER
     public static int sumOfDivisors(int number, int i) {
-        if (i == number/2)
-            return number;
-        if (number % i == 0) {
+        if (i == number)
+            return 0;
+        if (number % i == 0)
             return i + sumOfDivisors(number, i + 1);
-
-        } else {
-            return sumOfDivisors(number, i + 1);
-
-        }
+        return sumOfDivisors(number, i + 1);
     }
 
-    
     public static String isPerfect(int number) {
         return (number == sumOfDivisors(number, 1)) ? "Yes" : "No";
     }
@@ -167,7 +161,8 @@ public class app {
                                 "Armstrong: " + isArmstrong(number) + "\n" +
                                 "Automorphic: " + automorphic(number) + "\n" +
                                 "Spy: " + isSpy(number) + "\n" +
-                                "Strong: " + isStrong(number) ;
+                                "Strong: " + isStrong(number);
+
                         break;
 
                     case "Sum":
@@ -210,7 +205,7 @@ public class app {
                 output.setText(result);
 
             } catch (Exception ex) {
-                output.setText("Enter valid number!");
+                output.setText("❌ Enter valid number!");
             }
         });
 
